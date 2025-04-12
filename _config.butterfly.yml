@@ -58,7 +58,7 @@ social:
 # Image Settings
 # --------------------------------------
 
-favicon: /img/fadeout.jpg
+favicon: /img/favicon.jpg
 
 avatar:
   img: /img/cpp.png
@@ -106,7 +106,7 @@ cover:
   archives_enable: true
   # When cover is not set, the default cover is displayed
   default_cover:
-    - /img/cpp/cpp.png
+  #  - /img/cpp/cpp.png
 
 # Replace Broken Images
 error_img:
@@ -178,7 +178,7 @@ subtitle:
 # 5: Info displayed on the cover
 # 6: Masonry layout - Cover on top, info on the bottom
 # 7: Masonry layout - Info displayed on the cover
-index_layout: 3
+index_layout: 1
 
 # Display the article introduction on homepage
 # 1: description
@@ -292,8 +292,8 @@ aside:
       text: Follow Me
       link: https://github.com/xxxxxx
   card_announcement:
-    enable: true
-    content: This is my Blog
+    enable: false
+    content: Add content if enabled
   card_recent_post:
     enable: true
     # If set 0 will show all
@@ -326,7 +326,7 @@ aside:
     order: 1
     sort_order:
   card_archives:
-    enable: true
+    enable: false
     # Type: monthly / yearly
     type: monthly
     # Eg: YYYY年MM月
@@ -345,7 +345,7 @@ aside:
     # Sort of order. 1, asc for ascending; -1, desc for descending
     order: -1
   card_webinfo:
-    enable: true
+    enable: false
     post_count: true
     last_push_date: true
     sort_order:
@@ -436,9 +436,9 @@ wordcount:
 
 # Busuanzi count for PV / UV in site
 busuanzi:
-  site_uv: true
-  site_pv: true
-  page_pv: true
+  site_uv: false
+  site_pv: false
+  page_pv: false
 
 # --------------------------------------
 # Math
