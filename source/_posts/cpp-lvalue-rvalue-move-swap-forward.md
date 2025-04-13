@@ -1,5 +1,5 @@
 ---
-title: 'C++ lvalue, rvalue, move, swap, forward'
+title: C++ lvalue, rvalue, move, swap, forward
 cover: /img/cpp/cpp.png
 mathjax: true
 tags: C++

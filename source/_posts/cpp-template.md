@@ -1,0 +1,69 @@
+---
+title: C++ Template
+cover: /img/cpp/cpp.png
+mathjax: true
+tags: C++
+abbrlink: 1231239
+date: 2023-04-01 00:00:00
+updated: 2025-04-10 00:00:00
+---
+
+A template is the same as **Macro** in C, but a far less evil one. Compiler could do more checking to ensure the safety of the program.
+
+## What is template
+
+The compiler **substitutes** the template parameters into the functions and classes to make more them more dynamic.
+
+Since template is essentially doing the substitution, then we the template parameter should be known in compile-time.
+
+The template parameters can be one of these:
+- type
+- value
+    - pointers (including function pointers!)
+    - references
+    - integer constant expressions (i.e. can be evaluated in compile time)
+
+## Why template
+1. Values could be precomputed in compile-time
+2. Compiler optimization (e.g., loop unrolling etc.)
+3. More generic
+
+## Exercise
+
+### Pass function to template
+
+```cpp=
+#include <iostream>
+
+// fn should be deducted to a function pointer value
+template<auto fn, int sz>
+int wrapper1() {
+    return fn(sz);
+}
+
+// fn_t is a function pointer type
+template<typename fn_t>
+int wrapper2(fn_t fn, int sz) {
+    return fn(2);
+}
+
+constexpr int square(int x) {
+    return x * x;
+}
+
+int main() {
+    int sz = 10;
+    std::cout << wrapper1<square, sz>();    // ERROR: sz should be constant
+    
+    constexpr int const_sz = 10;
+    wrapper1<square, const_sz>();    // OK
+    
+    wrapper2<decltype(square)>(square, sz) ;    // OK
+    wrapper2(square, sz);    // OK, template param is deducted by the compiler
+    
+}
+```
+
+## Reference
+- [What does template <unsigned int N> mean?](https://stackoverflow.com/questions/499106/what-does-template-unsigned-int-n-mean)
+- [Wikipedia - 模板元編程](https://zh.wikipedia.org/zh-tw/模板元編程)
