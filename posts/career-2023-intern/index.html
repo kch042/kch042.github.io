@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2023 SWE Intern 面試紀錄 | 8st and the black cats</title><meta name="author" content="8st"><meta name="copyright" content="8st"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="網路上的心得讓我在找實習時受益良多，決定寫這篇分享給大家，也記錄下這段時間找實習的過程。 TL;DR 直接無聲 Dcard Cadence Dell CMoney   無面試，直接感謝信 Google Synopsys Yahoo   面試後無聲 Moxa 404   offer HPE Trend Micro Microsoft Synology    總覽 背景 面試前 面試分享 群暉 Mox">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023 SWE Intern 面試紀錄">
+<meta property="og:url" content="https://kch042.github.io/posts/career-2023-intern/index.html">
+<meta property="og:site_name" content="8st and the black cats">
+<meta property="og:description" content="網路上的心得讓我在找實習時受益良多，決定寫這篇分享給大家，也記錄下這段時間找實習的過程。 TL;DR 直接無聲 Dcard Cadence Dell CMoney   無面試，直接感謝信 Google Synopsys Yahoo   面試後無聲 Moxa 404   offer HPE Trend Micro Microsoft Synology    總覽 背景 面試前 面試分享 群暉 Mox">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://kch042.github.io/img/stretch.png">
+<meta property="article:published_time" content="2023-06-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-06T16:00:00.000Z">
+<meta property="article:author" content="8st">
+<meta property="article:tag" content="Intern">
+<meta property="article:tag" content="Microsoft">
+<meta property="article:tag" content="HPE">
+<meta property="article:tag" content="Trend Micro">
+<meta property="article:tag" content="Synology">
+<meta property="article:tag" content="Moxa 404">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kch042.github.io/img/stretch.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2023 SWE Intern 面試紀錄",
+  "url": "https://kch042.github.io/posts/career-2023-intern/",
+  "image": "https://kch042.github.io/img/stretch.png",
+  "datePublished": "2023-06-01T16:00:00.000Z",
+  "dateModified": "2024-06-06T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "8st",
+      "url": "https://kch042.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://kch042.github.io/posts/career-2023-intern/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2023 SWE Intern 面試紀錄',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background: black;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/cpp.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-file"></i><span> Posts</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/stretch.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">8st and the black cats</span></a><a class="nav-page-title" href="/"><span class="site-name">2023 SWE Intern 面試紀錄</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-file"></i><span> Posts</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">2023 SWE Intern 面試紀錄</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-06-01T16:00:00.000Z" title="發表於 2023-06-02 00:00:00">2023-06-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2024-06-06T16:00:00.000Z" title="更新於 2024-06-07 00:00:00">2024-06-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Career/">Career</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>網路上的心得讓我在找實習時受益良多，決定寫這篇分享給大家，也記錄下這段時間找實習的過程。</p>
+<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
+<li>直接無聲<ul>
+<li>Dcard</li>
+<li>Cadence</li>
+<li>Dell</li>
+<li>CMoney</li>
+</ul>
+</li>
+<li>無面試，直接感謝信<ul>
+<li>Google</li>
+<li>Synopsys</li>
+<li>Yahoo</li>
+</ul>
+</li>
+<li>面試後無聲<ul>
+<li>Moxa 404</li>
+</ul>
+</li>
+<li>offer<ul>
+<li>HPE</li>
+<li>Trend Micro</li>
+<li>Microsoft</li>
+<li>Synology</li>
+</ul>
+</li>
+</ul>
+<h2 id="總覽"><a href="#總覽" class="headerlink" title="總覽"></a>總覽</h2><ul>
+<li>背景</li>
+<li>面試前</li>
+<li>面試分享<ul>
+<li>群暉</li>
+<li>Moxa 404</li>
+<li>微軟</li>
+<li>趨勢</li>
+<li>HPE</li>
+</ul>
+</li>
+<li>後記</li>
+</ul>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>非本科混血台大資工碩，英文能力沒問題，自修國外線上課寫lab，沒什麼side project，喜歡寫算法題，leetcode 大概400題左右</p>
+<h2 id="面試前"><a href="#面試前" class="headerlink" title="面試前"></a>面試前</h2><p>當時太懶，只有寫英文的履歷，後來來看，的確只要英文履歷就夠了</p>
+<p>第一次寫履歷的請直接拿模板來改，例如<a target="_blank" rel="noopener" href="https://www.freecodecamp.org/news/writing-a-killer-software-engineering-resume-b11c91ef699d/">這</a>，寫完後請找有經驗的人（不管是HR或是工程師）幫忙改，<strong>第一次寫請做好被批改到爆的心理準備</strong></p>
+<p><strong>履歷很重要</strong>，如果像我一樣沒料的請更多用心把自己包裝好，除了頭上的學歷外，也多寫一些自己過去寫過的projects，哪怕只是修課的東西</p>
+<p>另外<strong>建議準備投影片</strong>介紹自己過去做的project，以圖片demo自己的結果很重要，然後練習<strong>用英文present</strong>你的結果，我覺得在這部分對於我後續面試有蠻大的幫助</p>
+<h2 id="面試分享"><a href="#面試分享" class="headerlink" title="面試分享"></a>面試分享</h2><h3 id="群暉-Product-Developer-Summer-Intern-Cloud-Service-and-Data-Protection"><a href="#群暉-Product-Developer-Summer-Intern-Cloud-Service-and-Data-Protection" class="headerlink" title="群暉 Product Developer Summer Intern (Cloud Service and Data Protection)"></a>群暉 Product Developer Summer Intern (Cloud Service and Data Protection)</h3><p>剛開缺時就投了，大概快一個月後寄面試邀請給我，實體面試，地點在板橋，從捷運藍線亞東醫院站走大概10分鐘到，第一次去科技公司有種開眼見的感覺XD</p>
+<p>有兩關，都同一天面，第一關技術關，第二關HR</p>
+<p>技術關的部分有兩個面試官，會拿著履歷跟成績單問一些你過去的經驗，還有問一些os, oop, network的問題，接著考白板題，實作一個類似linux tree的指令，以及一個follow-up，follow-up需要多用一個資料結構來達成，當時想不太到，面試官旁敲側擊的提示才把它完成的XD</p>
+<p>HR關會拿著成績單跟履歷問，問一些過去的經驗，以及把你的修過的相關課程仔細看過一遍，問的過程還會問到一些行為面試的問題，比前一關輕鬆</p>
+<p>最後HR還有問希望多快收到結果，似乎他們打算把後面的candidate都面完才告訴結果。面試後快兩個月收到HR電話給offer，可能是我被排在waiting list很後面</p>
+<p><strong>結果：offer get</strong></p>
+<h3 id="Moxa-404-軟體研發實習生"><a href="#Moxa-404-軟體研發實習生" class="headerlink" title="Moxa 404 軟體研發實習生"></a>Moxa 404 軟體研發實習生</h3><p>投完也是快一個月收到面試邀請，線上面試，面試官應該是一個工程師</p>
+<p>面試時會問一些過去做過的project以及內容，盡量把自己的履歷上的東西都搞熟，有的會問很細，但是沒有考白板題</p>
+<p>另外我履歷上有寫會golang，面試官對這點挺有興趣的，似乎有Team是寫golang的，還有問我有沒有看過golang的open source projects，可惜我golang大部分是解題用，沒有拿來寫過project</p>
+<p>問完後，會跟你大概介紹一些現在的工作，主要是做一些embedding system有關的</p>
+<p><strong>結果：無聲</strong></p>
+<h3 id="微軟-未來生涯體驗計劃-RD-Intern"><a href="#微軟-未來生涯體驗計劃-RD-Intern" class="headerlink" title="微軟 未來生涯體驗計劃 RD Intern"></a>微軟 未來生涯體驗計劃 RD Intern</h3><p>剛開缺就投，沒很久就在某次期中考完收到phone interview，大概就是請你用英文自介，以及過去做的專案，過程不會很久</p>
+<p>沒多久就收到線上二面的消息，面試官應該是人力派遣公司的員工，面試時也是英文自介然後問一些行為面試的問題，不會太難．二面最後會決定你去哪個部門，我是被assign到bing geocoding的部門</p>
+<p>三面是考白板題，有兩關，面試官都是現任實習生，每關都有兩題leetcode，第一關一題medium 一題hard，第二關一題medium-hard，一題easy-medium。其實有的題目有點難，例如有用到monotonic stack，沒認真刷題就被送下去的感覺，另外考完後都要挑一題用英文解釋解題思路</p>
+<p>題外話，第二個面試官考完後還跟我小聊一下學校，後來才知道居然是這學期正在修的課的助教XD</p>
+<p>面試完過幾天就收到offer了</p>
+<p><strong>結果：offer get</strong></p>
+<h3 id="趨勢-軟體開發與測試"><a href="#趨勢-軟體開發與測試" class="headerlink" title="趨勢 軟體開發與測試"></a>趨勢 軟體開發與測試</h3><p>投完大概一個月收（又是一個月XD）收到線上codility test，120分鐘3題，大概是1題easy，1題medium，1題medium-hard之間</p>
+<p>前兩題大概15分鐘內解決，最後一題想了蠻久只能想到 $O(n^2)$ 的解，後來才想到要用Fenwick tree，最佳解大概就是 $O(nlogn)$</p>
+<p>考完後快一個禮拜收到實體面試邀約（有點意外coding test過了XD）<br>面試時有兩位面試官，來自Team DNA，主要工作內容是ML相關的部分</p>
+<p>其實我有點意外面試我的會是做ML相關的部門（之前很少聽說trend機器學習部門的消息），不過在招聘的JD上也沒有特別說明工作內容，我猜應該是看我的履歷部分機器學習部分蠻多內容的XD</p>
+<p>面試時，我有使用我的投影片做presentation，但沒有想到是ML相關的Team，所以簡報裡ML的部分只有一些而已，不過我還是把之前做過的東西介紹給面試官聽</p>
+<p>報完後，面試官有對我的投影片跟履歷上關於ML的東西做提問，例如我的履歷上有寫到使用LSTM訓練一個情感分類的模型，他便問我什麼是LSTM，LSTM與RNN的差別，還有問一些其他基礎知識像是self attention是什麼，後續問到文字是怎麼應用在模型上(word2vec，glove etc.)，以及bert出來後，他們與使用bert的差別等等</p>
+<p>面試後段時，面試官有跟我介紹他們team的工作內容，主要都是ML相關的，NLP或是CV領域的工作都有，正職他們在工作時也會每個禮拜排一天來組study group，研究與開發大概一半一半，感覺在這實習能學到不少</p>
+<p>面試完隔天就收到offer</p>
+<p><strong>結果：offer get</strong></p>
+<h3 id="HPE-VMware-Software-Engineer"><a href="#HPE-VMware-Software-Engineer" class="headerlink" title="HPE VMware Software Engineer"></a>HPE VMware Software Engineer</h3><p>投完後大概兩個月接到HR的電話邀請面試，當時有點忘記是投哪個缺，面試信件裡提到的職位名稱看起來很fancy，也沒有intern字眼，怕投成正職…（但後來有確定是實習）</p>
+<p>面試時有3位面試官，一樣我也是使用我的投影片做presentation，因為是外商的原因，所以我也使用英文來做介紹</p>
+<p>雖然面試官有3位，但是主要是1位面試官在跟交流，在報告的過程有時會停下來回答他的問題，使用英文來跟他溝通技術的東西還蠻特別的，是很寶貴的經驗</p>
+<p>原本後續應該還有一關要面vmware部門的老闆，但面試完後有另一個部門的面試官後來有邀請我進她的Team，因為我在過去做了不少跟kernel有關的project，在面試時也花不少時間介紹，因此想找我去她的Team</p>
+<p>能感覺到她很有誠意地想邀請我進去，她還有跟vmware部門的同事協調説要我XD，除了介紹她的部門工作，也有跟我聊了一些生涯規劃的部分，十分感謝她的建議與賞識</p>
+<p><strong>結果：offer get</strong></p>
+<h2 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h2><p>這邊記錄一下我這次的檢討，自己之前的project主要都是單打獨鬥，比較少與別人合作的經驗，所以這點在一些BQ上就比較吃虧，希望能藉由實習來加強自己的實力，以及跟別的強者交流合作的機會XD</p>
+<p>同時也該開始選定一個方向開始鍛鍊，面試群暉時面試官也表示我的守備範圍很廣XD ，從ML到kernel到VLSI都有摸過，但是我不是神人，樣樣通意味著樣樣淺</p>
+<h3 id="Takeaway"><a href="#Takeaway" class="headerlink" title="Takeaway"></a>Takeaway</h3><p>面試前請準備好</p>
+<p>基本</p>
+<ul>
+<li>履歷</li>
+<li>自我介紹</li>
+<li>白板題</li>
+<li>行為面試問題</li>
+</ul>
+<p>Good to have</p>
+<ul>
+<li>簡報</li>
+<li>英文口說能力</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://kch042.github.io">8st</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://kch042.github.io/posts/career-2023-intern/">https://kch042.github.io/posts/career-2023-intern/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://kch042.github.io" target="_blank">8st and the black cats</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Intern/">Intern</a><a class="post-meta__tags" href="/tags/Microsoft/">Microsoft</a><a class="post-meta__tags" href="/tags/HPE/">HPE</a><a class="post-meta__tags" href="/tags/Trend-Micro/">Trend Micro</a><a class="post-meta__tags" href="/tags/Synology/">Synology</a><a class="post-meta__tags" href="/tags/Moxa-404/">Moxa 404</a></div><div class="post-share"><div class="social-share" data-image="/img/stretch.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/compiler-basics/" title="Compiler Basics"><img class="cover" src="/img/cpp/cpp.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Compiler Basics</div></div><div class="info-2"><div class="info-item-1">This article covers the high level view of compiler process and serves as a beginner tutorial into compiler. Compiling Procedure Preprocess Compile Assemble Link  PreprocessSubstitute macro into the source file (.c) Macro is a  piece of code using #define  For example: 12345#define x 10int main() &#123;    int y = x;&#125;  After preprocessing, it will becomes 123int main() &#123;    int y = 10;&#125;  It’s also useful to use macro to replace small function.As building and using another...</div></div></div></a><a class="pagination-related" href="/posts/cpp-polymorphism/" title="C++ Polymorphism"><img class="cover" src="/img/cpp/cpp.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">C++ Polymorphism</div></div><div class="info-2"><div class="info-item-1">Overview Compile time polymorphism Function overloading Operator overloading   Runtime polymorphism Virtual function (dynamic dispatching)    Compile time polymorphismFunction overloadingFunctions of different signature and return type can share the same function name 123456789101112void fn(int a) &#123;    cout &lt;&lt; a &lt;&lt; &quot;\n&quot;;&#125;void fn(float b) &#123;    cout &lt;&lt; b &lt;&lt; &quot;\n&quot;;&#125;int main() &#123;    fn(10);    fn(1.0);&#125;  However, we cannot...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/career-2024-new-grad-fte/" title="2024 SWE New Grad 求職紀錄"><img class="cover" src="/img/stretch.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-06</div><div class="info-item-2">2024 SWE New Grad 求職紀錄</div></div><div class="info-2"><div class="info-item-1">這篇紀錄了我初期找工作的一些經過，後續還有與其他公司(e.g. ByteDance)面試，但因為後來太忙就沒時間記錄下來。 TL;DR Offer: NV, Google SWE Intern Reject: Synology No outcome: TSMC No interview: Synopsys, Google  Nvidia TensorRT (RDSS Intern)Timing D: application submitted D+3: HR email me about receiving me resume D+5: 1st round interview invitation D+9: 1st round interview D+11: 2nd round interview invitation D+15: 2nd round interview  一面感覺面下來人最親切，學到很多 1 person, 1 hour  Introduction to TensorRT Questions C++ virtual function   Computer...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/cpp.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">8st</div><div class="author-info-description">Hi, This is Buster. I love black cats!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">2</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TL-DR"><span class="toc-number">1.</span> <span class="toc-text">TL;DR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B8%BD%E8%A6%BD"><span class="toc-number">2.</span> <span class="toc-text">總覽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">3.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%A9%A6%E5%89%8D"><span class="toc-number">4.</span> <span class="toc-text">面試前</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%A9%A6%E5%88%86%E4%BA%AB"><span class="toc-number">5.</span> <span class="toc-text">面試分享</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BE%A4%E6%9A%89-Product-Developer-Summer-Intern-Cloud-Service-and-Data-Protection"><span class="toc-number">5.1.</span> <span class="toc-text">群暉 Product Developer Summer Intern (Cloud Service and Data Protection)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Moxa-404-%E8%BB%9F%E9%AB%94%E7%A0%94%E7%99%BC%E5%AF%A6%E7%BF%92%E7%94%9F"><span class="toc-number">5.2.</span> <span class="toc-text">Moxa 404 軟體研發實習生</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AE%E8%BB%9F-%E6%9C%AA%E4%BE%86%E7%94%9F%E6%B6%AF%E9%AB%94%E9%A9%97%E8%A8%88%E5%8A%83-RD-Intern"><span class="toc-number">5.3.</span> <span class="toc-text">微軟 未來生涯體驗計劃 RD Intern</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B6%A8%E5%8B%A2-%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC%E8%88%87%E6%B8%AC%E8%A9%A6"><span class="toc-number">5.4.</span> <span class="toc-text">趨勢 軟體開發與測試</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HPE-VMware-Software-Engineer"><span class="toc-number">5.5.</span> <span class="toc-text">HPE VMware Software Engineer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%8C%E8%A8%98"><span class="toc-number">6.</span> <span class="toc-text">後記</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Takeaway"><span class="toc-number">6.1.</span> <span class="toc-text">Takeaway</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-inline/" title="C++ Inline"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ Inline"/></a><div class="content"><a class="title" href="/posts/cpp-inline/" title="C++ Inline">C++ Inline</a><time datetime="2024-10-27T16:00:00.000Z" title="發表於 2024-10-28 00:00:00">2024-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-lvalue-rvalue-move-swap-forward/" title="C++ lvalue, rvalue, move, swap, forward"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ lvalue, rvalue, move, swap, forward"/></a><div class="content"><a class="title" href="/posts/cpp-lvalue-rvalue-move-swap-forward/" title="C++ lvalue, rvalue, move, swap, forward">C++ lvalue, rvalue, move, swap, forward</a><time datetime="2024-05-17T16:00:00.000Z" title="發表於 2024-05-18 00:00:00">2024-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-template/" title="C++ Template"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ Template"/></a><div class="content"><a class="title" href="/posts/cpp-template/" title="C++ Template">C++ Template</a><time datetime="2024-02-24T16:00:00.000Z" title="發表於 2024-02-25 00:00:00">2024-02-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-uniform-initialization/" title="C++ Uniform Initialization"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ Uniform Initialization"/></a><div class="content"><a class="title" href="/posts/cpp-uniform-initialization/" title="C++ Uniform Initialization">C++ Uniform Initialization</a><time datetime="2024-02-19T16:00:00.000Z" title="發表於 2024-02-20 00:00:00">2024-02-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/career-2024-new-grad-fte/" title="2024 SWE New Grad 求職紀錄"><img src="/img/stretch.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024 SWE New Grad 求職紀錄"/></a><div class="content"><a class="title" href="/posts/career-2024-new-grad-fte/" title="2024 SWE New Grad 求職紀錄">2024 SWE New Grad 求職紀錄</a><time datetime="2023-12-05T16:00:00.000Z" title="發表於 2023-12-06 00:00:00">2023-12-06</time></div></div></div></div></div></div></main><footer id="footer" style="background: black;"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By 8st</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div></div></body></html>

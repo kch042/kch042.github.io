@@ -1,0 +1,414 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2024 SWE New Grad 求職紀錄 | 8st and the black cats</title><meta name="author" content="8st"><meta name="copyright" content="8st"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="這篇紀錄了我初期找工作的一些經過，後續還有與其他公司(e.g. ByteDance)面試，但因為後來太忙就沒時間記錄下來。 TL;DR Offer: NV, Google SWE Intern Reject: Synology No outcome: TSMC No interview: Synopsys, Google  Nvidia TensorRT (RDSS Intern)Timing D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024 SWE New Grad 求職紀錄">
+<meta property="og:url" content="https://kch042.github.io/posts/career-2024-new-grad-fte/index.html">
+<meta property="og:site_name" content="8st and the black cats">
+<meta property="og:description" content="這篇紀錄了我初期找工作的一些經過，後續還有與其他公司(e.g. ByteDance)面試，但因為後來太忙就沒時間記錄下來。 TL;DR Offer: NV, Google SWE Intern Reject: Synology No outcome: TSMC No interview: Synopsys, Google  Nvidia TensorRT (RDSS Intern)Timing D">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://kch042.github.io/img/stretch.png">
+<meta property="article:published_time" content="2023-12-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-21T16:00:00.000Z">
+<meta property="article:author" content="8st">
+<meta property="article:tag" content="Synology">
+<meta property="article:tag" content="NCG">
+<meta property="article:tag" content="Nvidia">
+<meta property="article:tag" content="Google">
+<meta property="article:tag" content="TSMC">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kch042.github.io/img/stretch.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "2024 SWE New Grad 求職紀錄",
+  "url": "https://kch042.github.io/posts/career-2024-new-grad-fte/",
+  "image": "https://kch042.github.io/img/stretch.png",
+  "datePublished": "2023-12-05T16:00:00.000Z",
+  "dateModified": "2024-04-21T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "8st",
+      "url": "https://kch042.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://kch042.github.io/posts/career-2024-new-grad-fte/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2024 SWE New Grad 求職紀錄',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background: black;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/cpp.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-file"></i><span> Posts</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/stretch.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">8st and the black cats</span></a><a class="nav-page-title" href="/"><span class="site-name">2024 SWE New Grad 求職紀錄</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-file"></i><span> Posts</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">2024 SWE New Grad 求職紀錄</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-12-05T16:00:00.000Z" title="發表於 2023-12-06 00:00:00">2023-12-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2024-04-21T16:00:00.000Z" title="更新於 2024-04-22 00:00:00">2024-04-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Career/">Career</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>這篇紀錄了我初期找工作的一些經過，後續還有與其他公司(e.g. ByteDance)面試，但因為後來太忙就沒時間記錄下來。</p>
+<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><ul>
+<li>Offer: NV, Google SWE Intern</li>
+<li>Reject: Synology</li>
+<li>No outcome: TSMC</li>
+<li>No interview: Synopsys, Google</li>
+</ul>
+<h2 id="Nvidia-TensorRT-RDSS-Intern"><a href="#Nvidia-TensorRT-RDSS-Intern" class="headerlink" title="Nvidia TensorRT (RDSS Intern)"></a>Nvidia TensorRT (RDSS Intern)</h2><h3 id="Timing"><a href="#Timing" class="headerlink" title="Timing"></a>Timing</h3><ul>
+<li>D: application submitted</li>
+<li>D+3: HR email me about receiving me resume</li>
+<li>D+5: 1st round interview invitation</li>
+<li>D+9: 1st round interview</li>
+<li>D+11: 2nd round interview invitation</li>
+<li>D+15: 2nd round interview</li>
+</ul>
+<h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><p>感覺面下來人最親切，學到很多</p>
+<p>1 person, 1 hour</p>
+<ul>
+<li>Introduction to TensorRT</li>
+<li>Questions<ul>
+<li>C++<ul>
+<li>virtual function</li>
+</ul>
+</li>
+<li>Computer Architecture<ul>
+<li>pipelined CPU</li>
+<li>cache invalidate</li>
+</ul>
+</li>
+<li>Perf Analysis<ul>
+<li>how to analyze the perf of addition of two vectors</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><p>3 people, each one 1 hour respectively</p>
+<h4 id="2-1"><a href="#2-1" class="headerlink" title="2-1"></a>2-1</h4><ul>
+<li>Brief intro of myself</li>
+<li>Resume<ul>
+<li>OS<ul>
+<li>how does a system call work</li>
+<li>why user mode &amp; kernel mode</li>
+<li>what metadata does kernel have for each process</li>
+<li>describe the user thread library I implemented</li>
+</ul>
+</li>
+<li>Computer Arch<ul>
+<li>describe my RISV-V CPU implementation</li>
+<li>what’s the challenge in this project</li>
+<li>why pipelined CPU</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>C++<ul>
+<li>my experience in C++ projects</li>
+<li>pointer vs reference</li>
+<li>can a class constructor be virtual, and why</li>
+<li>how does virtual work</li>
+<li>smart pointers</li>
+</ul>
+</li>
+<li>Algorithmic problem<ul>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-duplicate-subtrees/description/">finding duplicate subtrees</a></li>
+</ul>
+</li>
+</ul>
+<p>2-2</p>
+<ul>
+<li>Perf Analysis<ul>
+<li>suppose I have a branch new CPU which allegedly has good performance and great quality of cache. But I don’t believe in that! Suppose I have a compiler that can compile code to run on the CPU, write a code to run to measure the cache size and the level of cache.</li>
+</ul>
+</li>
+<li>Algorithmic Problem<ul>
+<li>add two numbers represented by a linked list</li>
+</ul>
+</li>
+</ul>
+<p>2-3<br>感覺面下來人第二好的面試官，可惜沒有能寫到bonus QQ</p>
+<ul>
+<li>Brief self intro</li>
+<li>C++ projects experience</li>
+<li>Resume questions<ul>
+<li>OS<ul>
+<li>many projects, where do you get, how to evaluate</li>
+</ul>
+</li>
+<li>DL projects<ul>
+<li>LSTM, how do you build it?</li>
+<li>text summarization, how do you evaluate them?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HackerRank<ul>
+<li>Sparse Vector implementation<ul>
+<li>2 constructors</li>
+<li>operator get method (O(n) -&gt; O(lgn) -&gt; O(1))</li>
+<li>add two vectors (O(n))</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QA<ul>
+<li>Does TensorRT team require CUDA skills?<ul>
+<li>現在TensorRT team把大部分CUDA的功能都切給另個team，這個team現在主要是focus在C++，不過有CUDA知識也很好</li>
+</ul>
+</li>
+<li>Does TensorRT team need to train&#x2F;research model?<ul>
+<li>不會，但是要很了解network架構，這樣才知道哪些部分可以做加速的優化，例如residual norm layer做完才搬回memory</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Synology-台大快速面試"><a href="#Synology-台大快速面試" class="headerlink" title="Synology 台大快速面試"></a>Synology 台大快速面試</h2><h3 id="Timing-1"><a href="#Timing-1" class="headerlink" title="Timing"></a>Timing</h3><ul>
+<li>D: resume submitted</li>
+<li>D+7: interview invitation received</li>
+<li>D+26: interview</li>
+<li>D+33: rejection received</li>
+</ul>
+<h3 id="一面-1"><a href="#一面-1" class="headerlink" title="一面"></a>一面</h3><p>1hr, 一位工程師 (from Synology cbt2)</p>
+<ul>
+<li>情境題:<ul>
+<li>假設我們有一台遠端server可以讀寫一個巨大的文件，也有一個讀寫此server的record（tsv檔案，column分別是<code>rw</code>, <code>offset of the document</code>, <code>length read</code>）。我們今天發現讀的速度非常的慢，有什麼辦法可以解決這個問題？</li>
+<li>我的解法：想設計一個cache來減少對遠端讀的request，在record中看，對於每一個read，後面100個read有多少是被包含在我這個read裡，藉此可得到cache hit rate</li>
+<li>也有另一種想法：prefetch</li>
+<li>可惜時間不夠，也僅僅夠實作分析解法的可行性，來不及實作cache…</li>
+</ul>
+</li>
+</ul>
+<h2 id="Nvidia-CAD-DFT-RDSS-Intern"><a href="#Nvidia-CAD-DFT-RDSS-Intern" class="headerlink" title="Nvidia CAD DFT (RDSS Intern)"></a>Nvidia CAD DFT (RDSS Intern)</h2><p>這team是做in-house的eda modules</p>
+<h3 id="Timing-2"><a href="#Timing-2" class="headerlink" title="Timing"></a>Timing</h3><ul>
+<li>D: 投履歷</li>
+<li>D+5: Recruiter聯繫 （跟TensorRT的同一位）</li>
+<li>D+7: 一面</li>
+<li>D+27: 二面邀請</li>
+<li>D+32: 二面</li>
+<li>D+34: Next Step (Recruiter致電，得到口頭offer)</li>
+<li>D+40: Offer Letter</li>
+</ul>
+<h3 id="一面-2"><a href="#一面-2" class="headerlink" title="一面"></a>一面</h3><p>面試官是台灣人，前10分鐘主要是問我的經歷，focus在我實習的部分，然後研究的部分問了點，還問了一些RDSS的狀況，偏閒聊。</p>
+<p>除此之外還有稍微介紹CAD DFT Team的工作內容，除了開發一些CAD module，還有包含些CI&#x2F;CD的東西</p>
+<p>中間開始coding，考了一題OOP (virtual function)，然後一題BST key search (easy)，一題min path of a tree with specified visited nodes (medium)</p>
+<p>最後10分鐘有一些QA</p>
+<ul>
+<li>CAD DFT用的C++版本：11，不太會用到很fancy的功能，因為有些古老的tcl script有dependency的問題</li>
+<li>CAD DFT需要什麼樣的人：對背景要求還好，主要看中人的personality，能不能解決問題</li>
+<li>CAD DFT在台灣的人數：team裡大概台北5人，新竹5人。如果算上work very closely的team大概全台70-80人</li>
+</ul>
+<h3 id="二面-1"><a href="#二面-1" class="headerlink" title="二面"></a>二面</h3><p>on site面試，第一次到內湖NV辦公室，在西湖站旁。</p>
+<p>兩位面試官，各一個小時。</p>
+<p>第一位一開始請我先自我介紹，接著問了我碩論的東西以及我在自介裡提到的經歷。問完背景相關問題後，他請我介紹一遍我知道的資料結構與演算法（一個一個把他講出來…），然後他就出了兩題算法題。（第一題是給一棵binary tree，寫一個function確認他是不是min heap。第二題是找出kth large element in an array）。</p>
+<p>這兩題學過算法的都不會覺得太難，但是有些caveat需要注意。例如第一題即使parent node都比child node小，要是樹的形狀不對也不算是min heap。寫完兩題後時間就差不多到了，只剩5分鐘跟我閒聊，第二位面試官就到了。</p>
+<p>第二位面試官是RDSS轉正的engineer，資歷比較淺的感覺？他先是拿著履歷問了我的背景，例如實習，修課，擅長的程式語言等等。接著考了兩題算法題，難度一題easy，一題medium，很快就解完了XD (他說我表現得很不錯，比一些面正職的還要好？)。剩下蠻多時間閒聊的，就問了些對職缺的問題</p>
+<ul>
+<li>RDSS容易轉正嗎<ul>
+<li>A: 我們team轉正機率非常高，不像有些team時間到就叫人走人了XD</li>
+</ul>
+</li>
+<li>這個工作累嗎？會常加班嗎？<ul>
+<li>A: (露出似乎有點無奈的微笑) 我們沒有規定時間上下班，主要是責任制，project都是一陣一陣的，有做完比較重要。事實上我們辦公室的位子其實不夠，所以大家大部分都是WFH，大家一個禮拜只有一天會來，也許之後搬公司會有位子。</li>
+</ul>
+</li>
+<li>其他忘記了…</li>
+</ul>
+<h3 id="Next-Step"><a href="#Next-Step" class="headerlink" title="Next Step"></a>Next Step</h3><p>二面兩天後早上接到Recruiter電話得到口頭offer，接著填寫一些文件和約時間體檢（NV贊助，免費）。Recruiter預計兩週左右的時間跑文件的部分。</p>
+<h3 id="Offer-Letter"><a href="#Offer-Letter" class="headerlink" title="Offer Letter"></a>Offer Letter</h3><p>收到offer letter，上面有薪資，一些規定和福利。這邊RDSS沒有RSU，取而代之的是一包sign-on bonus.</p>
+<h2 id="TSMC-SWE"><a href="#TSMC-SWE" class="headerlink" title="TSMC SWE"></a>TSMC SWE</h2><h3 id="Timing-3"><a href="#Timing-3" class="headerlink" title="Timing"></a>Timing</h3><ul>
+<li>D: 收到邀請 </li>
+<li>D+6: 一面</li>
+</ul>
+<h3 id="一面-3"><a href="#一面-3" class="headerlink" title="一面"></a>一面</h3><p>跟主管面試，大概一個小時，一開始他還以為我已經畢業了…，後來他說會再問問看能不能走預聘</p>
+<p>面試過程問了碩論跟實習相關的東西，主要會問遇到什麼問題，問題的價值在哪，以及提出怎麼樣的solution去解決</p>
+<p>後面主要就是聊天，聊聊台積這幾年的擴廠以及數位轉型</p>
+<h3 id="OA-HackerRank"><a href="#OA-HackerRank" class="headerlink" title="OA (HackerRank)"></a>OA (HackerRank)</h3><p>三題90分鐘，體感上是E, E&#x2F;M, M，大概30幾分鐘就交卷了</p>
+<h2 id="Nvidia-Display-Driver-RDSS-Intern"><a href="#Nvidia-Display-Driver-RDSS-Intern" class="headerlink" title="Nvidia Display Driver (RDSS Intern)"></a>Nvidia Display Driver (RDSS Intern)</h2><h3 id="Timing-4"><a href="#Timing-4" class="headerlink" title="Timing"></a>Timing</h3><ul>
+<li>D: 投遞履歷</li>
+<li>D+11: OA</li>
+<li>D+13: 完成OA</li>
+<li>D+16: 一面邀請</li>
+<li>D+18: 一面 (取消)</li>
+</ul>
+<h3 id="OA"><a href="#OA" class="headerlink" title="OA"></a>OA</h3><p>120 mins，考OS題目，一些C++實作題目(bit manipulation，macro相關的題目)和debugging題目</p>
+<h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><h3 id="Synopsys"><a href="#Synopsys" class="headerlink" title="Synopsys"></a>Synopsys</h3><p>新思的HR有打電話給我跟我談recruit的流程，她會把履歷給主管看，如果有主管覺得有興趣會再來找我來面試</p>
+<h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>投遞NG後沒多久職缺就關閉了，status仍停留在submitted，我猜NG職缺都被intern先消化完了</p>
+<h2 id="Extra-Google-2024-SWE-Summer-Intern"><a href="#Extra-Google-2024-SWE-Summer-Intern" class="headerlink" title="Extra: Google 2024 SWE Summer Intern"></a>Extra: Google 2024 SWE Summer Intern</h2><p>無聊投了2024 Google SWE Summer Intern，記錄一下面試流程</p>
+<h3 id="Timing-5"><a href="#Timing-5" class="headerlink" title="Timing"></a>Timing</h3><ul>
+<li>D: 投履歷 (12&#x2F;25&#x2F;2023)</li>
+<li>D+8: 收到信填寫information collection form (01&#x2F;02&#x2F;2024)</li>
+<li>D+28: 收到面試時間通知 (01&#x2F;22&#x2F;2024)</li>
+<li>D+32: 一面 (01&#x2F;26&#x2F;2024)</li>
+<li>D+35: 二面 (01&#x2F;29&#x2F;2024)</li>
+<li>D+39: 收到信recruiter幫我送HC (02&#x2F;02&#x2F;2024)</li>
+<li>D+59: HC通過，填寫intern project preference的google form (02&#x2F;22&#x2F;2024)</li>
+<li>D+119: Offer Talk (04&#x2F;22&#x2F;2024)</li>
+</ul>
+<h3 id="一面-2024-01-26"><a href="#一面-2024-01-26" class="headerlink" title="一面 (2024.01.26)"></a>一面 (2024.01.26)</h3><p>使用Google meet和一個virtual interview editor進行面試，只有一題</p>
+<p>題目是這樣，有使用過Google Photo的都應該知道會有一個slide show的功能，用類似IG限時動態的方式呈現一些回憶照片</p>
+<p>這邊題目要設計一個簡單的slide show，給定兩個input, <code>album</code>和<code>favorites</code>，要去設計一個iterator function <code>GetNextPhoto()</code>，每次回傳一張照片，同時滿足先把<code>favorites</code>裡的照片回傳完，再回傳<code>ablum</code>裡剩下non-favorites的照片</p>
+<p>我一開始弄錯意思，寫了一個function一次output出排好題目要求順序的照片</p>
+<p>後來弄清楚題意後，我的思路是寫一個class，把<code>favorites</code>加進去一個set，再去使用pointer去maintain目前調閱過的照片。後來面試官想問能不能優化空間（set需要O(n)的空間），我就想到先把<code>album</code>和<code>favorites</code>做sorting，如此可以在調閱<code>album</code>的時候可以利用two-pointer快速知道目前的照片是否在favorite裡 （可惜來不及implement）</p>
+<p><strong>這邊總結一下Google面試的點和流程</strong></p>
+<ul>
+<li>一開始要跟面試官討論題目跟提出合理的assumption，然後才開始寫扣</li>
+<li>寫扣時要一邊寫一邊跟面試官講解想法</li>
+<li>寫完扣會要去分析複雜度，以及提出一些edge case去dry run你的扣</li>
+<li>還有一些coding style的部分要注意，包括但不限於naming和casing的部分</li>
+<li>接下來會要去討論一些優化，不管是時間或是空間上的</li>
+<li>面試時間很嚴格就是45分鐘</li>
+</ul>
+<h3 id="二面-（2024-01-29）"><a href="#二面-（2024-01-29）" class="headerlink" title="二面 （2024.01.29）"></a>二面 （2024.01.29）</h3><p>不同於一面，二面是一個外國人，英文面試</p>
+<p>這次考兩題，使用英文面試，一開始先寒暄一下，接著進到coding流程，一樣會先描述題目</p>
+<p>這次題目不難，有兩題。第一題是給定一個sentence，去數有幾個word。第二題是給定一串聊天記錄，每句的格式是<code>timestamp speaker sentence</code>，去數每個speaker講了幾個word。</p>
+<p>一樣作答時先問一些問題模糊的地方，確定一些assumption，接著描述算法概念，然後才開始實作。實作時邊寫邊跟面試官講解邏輯的部份，寫完扣後去想一些edge case來dry run一下，最後討論複雜度的部分。</p>
+<p>值得一提的是這次面試官比較不在意naming和coding style的部分，主要是看我的程式正確性（雖然我沒能一開始就寫出bug-free的程式碼，但是後面經過一些提示跟想一些edge case有成功寫出面試官覺得ok的扣）</p>
+<p>45分鐘結束後有給5分鐘QA，我臨時想不到一些問題，就隨便問了兩個</p>
+<ul>
+<li>Google Taiwan有很多外國人嗎<ul>
+<li>ans: 以他的team全部100多人，大概有10-15%是外國人</li>
+</ul>
+</li>
+<li>Google最近裁員有影響到台灣嗎<ul>
+<li>ans: 他也不清楚，所以沒辦法告訴我XD</li>
+</ul>
+</li>
+</ul>
+<p>整題來說面試下來感覺還不錯，題目不會太難，面試官也算親切</p>
+<h3 id="Team-Match"><a href="#Team-Match" class="headerlink" title="Team Match"></a>Team Match</h3><p>只要填一個project表單，HM會去挑人，也不會有Fit Talk。最後我去的team是Platform Infrastructure (PI)，根據HR的資訊是做server相關的，接觸到的teams很多</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://kch042.github.io">8st</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://kch042.github.io/posts/career-2024-new-grad-fte/">https://kch042.github.io/posts/career-2024-new-grad-fte/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://kch042.github.io" target="_blank">8st and the black cats</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Synology/">Synology</a><a class="post-meta__tags" href="/tags/NCG/">NCG</a><a class="post-meta__tags" href="/tags/Nvidia/">Nvidia</a><a class="post-meta__tags" href="/tags/Google/">Google</a><a class="post-meta__tags" href="/tags/TSMC/">TSMC</a></div><div class="post-share"><div class="social-share" data-image="/img/stretch.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/cpp-smart-pointer/" title="C++ Smart Pointer"><img class="cover" src="/img/cpp/cpp.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">C++ Smart Pointer</div></div><div class="info-2"><div class="info-item-1">TL;DR Use make_unique or make_shared instead of new.  12345678// The following two expressions have similar effectnew T(args);make_unique&lt;T&gt;(args);// So the following two lines are equal // except the later one is exception-safeunique_ptr&lt;int&gt; p1(new int(50));unique_ptr&lt;int&gt; p1 = make_unique&lt;int&gt;(50);   Shared pointer  Each shared pointer is an object consisting of  a pointer to the resource a pointer to the control block (this includes reference count)  Every shared...</div></div></div></a><a class="pagination-related" href="/posts/cpp-uniform-initialization/" title="C++ Uniform Initialization"><img class="cover" src="/img/cpp/cpp.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">C++ Uniform Initialization</div></div><div class="info-2"><div class="info-item-1">ConstructorHere’s a recap. 1234567891011121314151617class myClass &#123;public:    myClass() &#123;cout &lt;&lt; &quot;Default Constructor\n&quot;;&#125;    myClass(const myClass&amp; mycls) &#123;cout &lt;&lt; &quot;Copy Constructor\n&quot;;&#125;    myClass&amp; operator=(const myClass&amp; mycls) &#123;        cout &lt;&lt; &quot;Assignment Operator\n&quot;;         return *this;    &#125;&#125;;int main() &#123;    myClass m1;         // Default Constructor    myClass m2(m1);     // Copy...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/career-2023-intern/" title="2023 SWE Intern 面試紀錄"><img class="cover" src="/img/stretch.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-02</div><div class="info-item-2">2023 SWE Intern 面試紀錄</div></div><div class="info-2"><div class="info-item-1">網路上的心得讓我在找實習時受益良多，決定寫這篇分享給大家，也記錄下這段時間找實習的過程。 TL;DR 直接無聲 Dcard Cadence Dell CMoney   無面試，直接感謝信 Google Synopsys Yahoo   面試後無聲 Moxa 404   offer HPE Trend Micro Microsoft Synology    總覽 背景 面試前 面試分享 群暉 Moxa 404 微軟 趨勢 HPE   後記  背景非本科混血台大資工碩，英文能力沒問題，自修國外線上課寫lab，沒什麼side project，喜歡寫算法題，leetcode...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/cpp.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">8st</div><div class="author-info-description">Hi, This is Buster. I love black cats!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">2</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TL-DR"><span class="toc-number">1.</span> <span class="toc-text">TL;DR</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nvidia-TensorRT-RDSS-Intern"><span class="toc-number">2.</span> <span class="toc-text">Nvidia TensorRT (RDSS Intern)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Timing"><span class="toc-number">2.1.</span> <span class="toc-text">Timing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2"><span class="toc-number">2.2.</span> <span class="toc-text">一面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E9%9D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">二面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">2-1</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Synology-%E5%8F%B0%E5%A4%A7%E5%BF%AB%E9%80%9F%E9%9D%A2%E8%A9%A6"><span class="toc-number">3.</span> <span class="toc-text">Synology 台大快速面試</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Timing-1"><span class="toc-number">3.1.</span> <span class="toc-text">Timing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2-1"><span class="toc-number">3.2.</span> <span class="toc-text">一面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nvidia-CAD-DFT-RDSS-Intern"><span class="toc-number">4.</span> <span class="toc-text">Nvidia CAD DFT (RDSS Intern)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Timing-2"><span class="toc-number">4.1.</span> <span class="toc-text">Timing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2-2"><span class="toc-number">4.2.</span> <span class="toc-text">一面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E9%9D%A2-1"><span class="toc-number">4.3.</span> <span class="toc-text">二面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Next-Step"><span class="toc-number">4.4.</span> <span class="toc-text">Next Step</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Offer-Letter"><span class="toc-number">4.5.</span> <span class="toc-text">Offer Letter</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TSMC-SWE"><span class="toc-number">5.</span> <span class="toc-text">TSMC SWE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Timing-3"><span class="toc-number">5.1.</span> <span class="toc-text">Timing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2-3"><span class="toc-number">5.2.</span> <span class="toc-text">一面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OA-HackerRank"><span class="toc-number">5.3.</span> <span class="toc-text">OA (HackerRank)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nvidia-Display-Driver-RDSS-Intern"><span class="toc-number">6.</span> <span class="toc-text">Nvidia Display Driver (RDSS Intern)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Timing-4"><span class="toc-number">6.1.</span> <span class="toc-text">Timing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OA"><span class="toc-number">6.2.</span> <span class="toc-text">OA</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Others"><span class="toc-number">7.</span> <span class="toc-text">Others</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Synopsys"><span class="toc-number">7.1.</span> <span class="toc-text">Synopsys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Google"><span class="toc-number">7.2.</span> <span class="toc-text">Google</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extra-Google-2024-SWE-Summer-Intern"><span class="toc-number">8.</span> <span class="toc-text">Extra: Google 2024 SWE Summer Intern</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Timing-5"><span class="toc-number">8.1.</span> <span class="toc-text">Timing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2-2024-01-26"><span class="toc-number">8.2.</span> <span class="toc-text">一面 (2024.01.26)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E9%9D%A2-%EF%BC%882024-01-29%EF%BC%89"><span class="toc-number">8.3.</span> <span class="toc-text">二面 （2024.01.29）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Team-Match"><span class="toc-number">8.4.</span> <span class="toc-text">Team Match</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-inline/" title="C++ Inline"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ Inline"/></a><div class="content"><a class="title" href="/posts/cpp-inline/" title="C++ Inline">C++ Inline</a><time datetime="2024-10-27T16:00:00.000Z" title="發表於 2024-10-28 00:00:00">2024-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-lvalue-rvalue-move-swap-forward/" title="C++ lvalue, rvalue, move, swap, forward"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ lvalue, rvalue, move, swap, forward"/></a><div class="content"><a class="title" href="/posts/cpp-lvalue-rvalue-move-swap-forward/" title="C++ lvalue, rvalue, move, swap, forward">C++ lvalue, rvalue, move, swap, forward</a><time datetime="2024-05-17T16:00:00.000Z" title="發表於 2024-05-18 00:00:00">2024-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-template/" title="C++ Template"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ Template"/></a><div class="content"><a class="title" href="/posts/cpp-template/" title="C++ Template">C++ Template</a><time datetime="2024-02-24T16:00:00.000Z" title="發表於 2024-02-25 00:00:00">2024-02-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-uniform-initialization/" title="C++ Uniform Initialization"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ Uniform Initialization"/></a><div class="content"><a class="title" href="/posts/cpp-uniform-initialization/" title="C++ Uniform Initialization">C++ Uniform Initialization</a><time datetime="2024-02-19T16:00:00.000Z" title="發表於 2024-02-20 00:00:00">2024-02-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/career-2024-new-grad-fte/" title="2024 SWE New Grad 求職紀錄"><img src="/img/stretch.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024 SWE New Grad 求職紀錄"/></a><div class="content"><a class="title" href="/posts/career-2024-new-grad-fte/" title="2024 SWE New Grad 求職紀錄">2024 SWE New Grad 求職紀錄</a><time datetime="2023-12-05T16:00:00.000Z" title="發表於 2023-12-06 00:00:00">2023-12-06</time></div></div></div></div></div></div></main><footer id="footer" style="background: black;"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2025 By 8st</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div></div></body></html>
