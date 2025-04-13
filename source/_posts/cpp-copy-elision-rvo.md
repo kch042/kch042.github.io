@@ -2,10 +2,11 @@
 title: C++ Copy Elision & RVO
 cover: /img/cpp/cpp.png
 mathjax: true
+categories: C++
 tags: C++
 abbrlink: 19415
-date: 2023-04-01 00:00:00
-updated: 2025-04-10 00:00:00
+date: 2023-11-07 00:00:00
+updated: 2024-02-20 00:00:00
 ---
 
 This page introduces the copy elision and return value optimization feature in C++.

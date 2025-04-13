@@ -2,10 +2,11 @@
 title: C++ Smart Pointer
 cover: /img/cpp/cpp.png
 mathjax: true
+categories: C++
 tags: C++
 abbrlink: 90119
-date: 2023-04-01 00:00:00
-updated: 2025-04-10 00:00:00
+date: 2023-11-08 00:00:00
+updated: 2025-05-01 00:00:00
 ---
 
 ## TL;DR

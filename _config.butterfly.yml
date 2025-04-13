@@ -21,7 +21,7 @@ nav:
 # fas stands for fontawesome https://fontawesome.com/
 menu:
   Home: / || fas fa-home
-  Posts: /posts/ || fas fa-file
+  Posts: /archives/ || fas fa-file
   About: /about/ || fas fa-address-card
   # List||fas fa-list:
   #   Music: /music/ || fas fa-music
@@ -68,13 +68,13 @@ avatar:
 disable_top_img: false
 
 # If the banner of page not setting, it will show the default_top_img
-default_top_img: /img/sleeping.png
+default_top_img: /img/charco/stare3.jpg
 
 # The banner image of index page
 index_img:
 
 # The banner image of archive page
-archive_img:
+archive_img: /img/charco/bag.jpg
 
 # Note: tag page, not tags page
 tag_img:
@@ -93,7 +93,7 @@ category_img:
 category_per_img:
 
 # The background image of footer
-footer_img: false
+footer_img: black
 
 # Website Background
 # Can set it to color or image url
@@ -234,7 +234,7 @@ post_edit:
 related_post:
   enable: true
   # Number of posts displayed
-  limit: 6
+  limit: 3
   # Choose: created / updated
   date_type: created
 
@@ -262,10 +262,10 @@ noticeOutdate:
 footer:
   owner:
     enable: true
-    since: 2019
+    since: 2023
   custom_text:
   # Copyright of theme and framework
-  copyright: true
+  copyright: false
 
 # --------------------------------------
 # Aside Settings
@@ -285,12 +285,12 @@ aside:
     category: true
   card_author:
     enable: true
-    description:
+    description: Hi, This is Buster. I love black cats!
     button:
-      enable: true
+      enable: false
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/xxxxxx
+      link: https://example.com
   card_announcement:
     enable: false
     content: Add content if enabled

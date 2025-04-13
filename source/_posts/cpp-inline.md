@@ -2,10 +2,11 @@
 title: C++ Inline
 cover: /img/cpp/cpp.png
 mathjax: true
+categories: C++
 tags: C++
 abbrlink: 123481
-date: 2023-04-01 00:00:00
-updated: 2025-04-10 00:00:00
+date: 2024-10-28 00:00:00
+updated: 2024-10-28 00:00:00
 ---
 
 Originally, the keyword `inline` used to be an indicator to the compiler that the function is preferred to be inline substituted rather than a function call.

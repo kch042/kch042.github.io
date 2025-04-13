@@ -2,10 +2,11 @@
 title: C++ lvalue, rvalue, move, swap, forward
 cover: /img/cpp/cpp.png
 mathjax: true
+categories: C++
 tags: C++
 abbrlink: 39356
-date: 2023-04-01 00:00:00
-updated: 2025-04-10 00:00:00
+date: 2024-05-18 00:00:00
+updated: 2024-05-18 00:00:00
 ---
 
 The modern C++ starts from C++11 and introduces lvalue and rvalue. It completely redefines the lifecycle of objects in a program.

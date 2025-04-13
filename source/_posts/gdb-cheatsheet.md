@@ -2,13 +2,17 @@
 title: GDB CheatSheet
 cover: /img/cpp/cpp.png
 mathjax: true
-tags: C++
+categories: C++
+tags: 
+    - GDB
+    - Debugging
+    - Compiler
 abbrlink: 17350
-date: 2023-04-01 00:00:00
-updated: 2025-04-10 00:00:00
+date: 2022-05-14 00:00:00
+updated: 2023-02-23 00:00:00
 ---
 
-This is a gdb cheat sheet I used when I was a student. However, it seems that the big techs such as Google, Nvidia prefer using LLVM based compiler like Clang.
+This is a gdb cheat sheet I used when I was a student. gdb is useful debug tool, especially for low level system development. In my case, I used it frequently when I was working with kernel projects.
 
 ## Before
 

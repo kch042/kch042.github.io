@@ -2,10 +2,11 @@
 title: Compiler Basics
 cover: /img/cpp/cpp.png
 mathjax: true
-tags: C++
+categories: C++
+tags: Compiler
 abbrlink: 55949
-date: 2023-04-01 00:00:00
-updated: 2025-04-10 00:00:00
+date: 2022-05-15 00:00:00
+updated: 2023-10-30 00:00:00
 ---
 
 This article covers the high level view of compiler process and serves as a beginner tutorial into compiler.

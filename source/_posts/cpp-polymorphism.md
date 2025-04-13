@@ -2,10 +2,11 @@
 title: C++ Polymorphism
 cover: /img/cpp/cpp.png
 mathjax: true
+categories: C++
 tags: C++
 abbrlink: 40119
-date: 2023-04-01 00:00:00
-updated: 2025-04-10 00:00:00
+date: 2023-10-24 00:00:00
+updated: 2024-02-20 00:00:00
 ---
 
 ## Overview

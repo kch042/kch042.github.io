@@ -2,10 +2,11 @@
 title: C++ Template
 cover: /img/cpp/cpp.png
 mathjax: true
+categories: C++
 tags: C++
 abbrlink: 1231239
-date: 2023-04-01 00:00:00
-updated: 2025-04-10 00:00:00
+date: 2024-02-25 00:00:00
+updated: 2024-10-28 00:00:00
 ---
 
 A template is the same as **Macro** in C, but a far less evil one. Compiler could do more checking to ensure the safety of the program.
