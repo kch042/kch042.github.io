@@ -101,8 +101,7 @@ Please see the [references](#References) for more.
 
 ## std::move
 
-Once we have our move constructor, we only need to pass an object whose value type is rvalue. Howover, compiler **won't automatically** bind rvalue reference to lvalue reference, 
-[in case of some accidental usage](https://stackoverflow.com/questions/35652953/why-c-lvalue-objects-cant-be-bound-to-rvalue-references)
+Once we have our move constructor, we only need to pass an object whose value type is rvalue. Howover, compiler **won't automatically** bind rvalue reference to lvalue reference, [in case of some accidental usage](https://stackoverflow.com/questions/35652953/why-c-lvalue-objects-cant-be-bound-to-rvalue-references)
 
 ```cpp
 int main() {
@@ -212,7 +211,7 @@ This section is the **generic case of the above example**.
 Forwarding references are a special kind of references that preserve the value category of a function argument (so it accepts both lvalue and rvalue as the input), making it possible to forward it by means of `std::forward`. Forwarding references are either:
 
 1) function parameter of a function template declared as rvalue reference to cv-unqualified type template parameter of that same function template.
-2)`auto&&` except when deduced from a brace-enclosed initializer list.
+2) `auto&&` except when deduced from a brace-enclosed initializer list.
 
 In simple word, it is a variable **whose type is written as a rvalue reference to a type deduced by compiler when instantiating**.
 
@@ -298,14 +297,21 @@ int main() {
 }
 ```
 
-At first glance, it seems like the code triggers the move constructor of `string`, but in fact it uses the copy constructor. So the answer is that is outputs `"123"`;
+{% hideToggle Answer %}
 
-The reason it uses copy constructor instead of move constructor is that **every named object is lvalue**, even if the variable's type is rvalue reference, the expression consisting of its name is an lvalue expression.
+**Ans**: 123
 
-Both **lvalue reference** and **rvalue reference** are of **lvalue** cateogory.
+**Explain**: 
 
+* At first glance, it seems like the code triggers the move constructor of `string`, but in fact it uses the copy constructor. So the answer is that is outputs `"123"`;
 
-[More info](https://stackoverflow.com/questions/54951635/why-to-use-stdmove-despite-the-parameter-is-an-r-value-reference)
+* The reason it uses copy constructor instead of move constructor is that **every named object is lvalue**, even if the variable's type is rvalue reference, the expression consisting of its name is an lvalue expression.
+
+* Both **lvalue reference** and **rvalue reference** are of **lvalue** cateogory.
+
+* [More info](https://stackoverflow.com/questions/54951635/why-to-use-stdmove-despite-the-parameter-is-an-r-value-reference)
+
+{% endhideToggle %}
 
 ## Exercise: function call
 
@@ -348,6 +354,8 @@ int main() {
 
 What are the value categories of these?
 
+{% hideToggle Answer %}
+
 Ans:
 - expr1: lvalue
 - expr2: prvalue
@@ -359,6 +367,7 @@ Explain:
 - xvalue: a function call or an overloaded operator expression, whose return type is **rvalue reference** to object
 - prvalue: a function call or an overloaded operator expression, whose return type is **non-reference**
 
+{% endhideToggle %}
 
 ## Exercise: forwarding reference in class method
 
@@ -387,12 +396,17 @@ int main() {
 
 In this case, is `arg` in `MyClass<T>::func(arg)` a rvalue reference or a forwarding reference?
 
+{% hideToggle Answer %}
+
 **Ans**: rvalue reference
 
-**Explain**: `func()` can only be called when `MyClass` is instantiated. At this point, `T` is fixed and won't perform any type deduction anymore when calling `func()`.
+**Explain**: 
 
-However, **forwarding reference can appear inside the constructor**, as the type argument `T` is deduced when instantiating the class.
+* `func()` can only be called when `MyClass` is instantiated. At this point, `T` is fixed and won't perform any type deduction anymore when calling `func()`.
 
+* However, **forwarding reference can appear inside the constructor**, as the type argument `T` is deduced when instantiating the class.
+
+{% endhideToggle %}
 
 ## References
 - [Why can I still access an object that has been moved?](https://stackoverflow.com/questions/25129247/why-can-i-still-access-an-object-that-has-been-moved)
