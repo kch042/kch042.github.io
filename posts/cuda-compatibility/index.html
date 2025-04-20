@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Nvidia CUDA Compatibility | 8st and the black cats</title><meta name="author" content="8st"><meta name="copyright" content="8st"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="When training deep learning model, we often use Nvidia GPU on the server to accelerate the training, and use docker container to avoid messing up the server.  However, there are so many problems we ma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nvidia CUDA Compatibility">
+<meta property="og:url" content="https://kch042.github.io/posts/cuda-compatibility/index.html">
+<meta property="og:site_name" content="8st and the black cats">
+<meta property="og:description" content="When training deep learning model, we often use Nvidia GPU on the server to accelerate the training, and use docker container to avoid messing up the server.  However, there are so many problems we ma">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://kch042.github.io/img/work.png">
+<meta property="article:published_time" content="2023-06-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-06-27T16:00:00.000Z">
+<meta property="article:author" content="8st">
+<meta property="article:tag" content="Nvidia">
+<meta property="article:tag" content="CUDA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kch042.github.io/img/work.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Nvidia CUDA Compatibility",
+  "url": "https://kch042.github.io/posts/cuda-compatibility/",
+  "image": "https://kch042.github.io/img/work.png",
+  "datePublished": "2023-06-27T16:00:00.000Z",
+  "dateModified": "2023-06-27T16:00:00.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "8st",
+      "url": "https://kch042.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="https://kch042.github.io/posts/cuda-compatibility/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '複製成功',
+    error: '複製失敗',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '載入更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Nvidia CUDA Compatibility',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background: black;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/cpp.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-file"></i><span> Posts</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/work.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">8st and the black cats</span></a><a class="nav-page-title" href="/"><span class="site-name">Nvidia CUDA Compatibility</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-file"></i><span> Posts</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-address-card"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Nvidia CUDA Compatibility</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2023-06-27T16:00:00.000Z" title="發表於 2023-06-28 00:00:00">2023-06-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2023-06-27T16:00:00.000Z" title="更新於 2023-06-28 00:00:00">2023-06-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CUDA/">CUDA</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">總字數:</span><span class="word-count">820</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時間:</span><span>5分鐘</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>When training deep learning model, we often use Nvidia GPU on the server to accelerate the training, and use <strong>docker container</strong> to avoid messing up the server. </p>
+<p>However, there are so many problems we may come up when building the environment. One of them is <strong>cuda version compatibility</strong>.</p>
+<h2 id="Hierarchy"><a href="#Hierarchy" class="headerlink" title="Hierarchy"></a>Hierarchy</h2><p>There are 3 layers of abstraction when using Nvidia GPU (cuda) to train the model.</p>
+<ul>
+<li>nvidia runtime (<code>libcudart.so</code>, <code>cuda-toolkit</code>, <code>nvcc</code>)</li>
+<li>nvidia driver<ul>
+<li>nvidia user-mode driver (<code>libcuda.so</code>)</li>
+<li>nvidia kernel-mode driver (<code>nvidia.ko</code>)</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img/cuda/cuda-hierarchy.png"></p>
+<p>We must make sure these 3 layers have versions compatible with each other to run the program!!</p>
+<h2 id="Check-versions"><a href="#Check-versions" class="headerlink" title="Check versions"></a>Check versions</h2><h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><p>We have two methods to check runtime cuda versions.</p>
+<ol>
+<li><code>nvcc -V</code></li>
+</ol>
+<p><code>nvcc</code> is a compiler to compile the deep learning source code. It will use <code>cuda-toolkit</code> to convert the source code into cuda language.<br><img src="/img/cuda/nvcc-version.png"></p>
+<p>As we can see the runtime version is <code>10.2.89</code>.</p>
+<ol start="2">
+<li>find the version of <code>libcudart.so</code></li>
+</ol>
+<p>We are using <code>libcudart.so</code> for runtime linking.<br><img src="/img/cuda/libcudart.png"></p>
+<p>Note that <code>libcudart.so</code> is a <strong>soft link</strong>, and refer to a specific version.<br><img src="/img/cuda/libcudart-version.png"></p>
+<p>As we can see, it is refering to the runtime cuda version <code>10.2.89</code>.</p>
+<h3 id="Driver"><a href="#Driver" class="headerlink" title="Driver"></a>Driver</h3><p>Similar to checking runtime version, we have two ways to check driver versions.</p>
+<p>But for driver we have 2 versions to consider, user and kernel. <strong>For now, just consider them to be the same.</strong></p>
+<ol>
+<li>find the <code>libcuda.so</code></li>
+</ol>
+<p><img src="/img/cuda/libcuda.png"></p>
+<p>We are interested in <code>libcuda.so</code> which is also a soft link.</p>
+<p><img src="/img/cuda/libcuda-version.png"></p>
+<p>We can see our driver version is <code>470.182.03</code></p>
+<ol start="2">
+<li><code>nvidia-smi</code></li>
+</ol>
+<p>nvidia-smi is an application installed when installing the nvidia driver. </p>
+<p><img src="/img/cuda/nvidia-smi.png"></p>
+<p>We can see top row, we have <code>Driver Version: 470.182.03</code></p>
+<h3 id="The-simplest-version-compatibility"><a href="#The-simplest-version-compatibility" class="headerlink" title="The simplest version compatibility"></a>The simplest version compatibility</h3><p>Also, there’s an <code>CUDA version: 11.4</code> on the right, it tells us that the current driver version is supposed to match the runtime cuda version <code>11.4</code> to work.</p>
+<p>The above version compatibility sounds critical and not so flexible, right? Fortunately, Nvidia introduced some mechanisms to relax the version compatibility.</p>
+<ul>
+<li>Backward Compatibility</li>
+<li>Minor Version Compatibility</li>
+<li>Forward Compatibility</li>
+</ul>
+<h2 id="Backward-Compatibility"><a href="#Backward-Compatibility" class="headerlink" title="Backward Compatibility"></a>Backward Compatibility</h2><p>Backward compatibility allows us, given current driver version, run <strong>older cuda runtime version</strong>.</p>
+<p>In the above examples, we can only match driver version<br><code>470.182.03</code> with runtime version <code>11.4</code>. With backward compatibity, driver version <code>470.182.03</code> is now compatible with runtime version <code>&lt;=11.4</code> !!</p>
+<h2 id="Minor-Version-Compatibility"><a href="#Minor-Version-Compatibility" class="headerlink" title="Minor Version Compatibility"></a>Minor Version Compatibility</h2><p>By backward compatibility, we know that to use a certain cuda runtime version, we must have a driver whose version is <strong>large</strong> enough.</p>
+<p>For runtime cuda version smaller than <code>11</code>, we have a <strong>different</strong> driver version threshold for each <strong>minor</strong> version.<br><img src="/img/cuda/cuda-min10.png"></p>
+<p>From cuda <code>11</code> onwards, we have the <strong>same</strong> driver version threshold for each minor version of the major version.<br><img src="/img/cuda/cuda-min11.png"></p>
+<h2 id="Forward-Compatibility"><a href="#Forward-Compatibility" class="headerlink" title="Forward Compatibility"></a>Forward Compatibility</h2><p><strong>This mechanism is mostly for GPUs of data center level. (e.g. Tesla brand). So for normal users, it is rarely used.</strong></p>
+<p>However, we might encounter error like <code>Error 804: forward compatibility was attempted on non supported HW</code> when building the environment. So let’s take a look on the mechanism and see why this might happen.</p>
+<p>For data centers, it is troublesome to upgrade driver versions (due to the need of rigorous testing), but they also need a new enough driver to use newer runtime toolkit.<br><img src="/img/cuda/libcuda-user-kernel-same-version.png"></p>
+<p>So Nvidia provides a more convenient solution: upgrading only <strong>user-mode driver</strong> allows you to use newer runtime toolkit !!</p>
+<p>In the previous chapters, we consider kernel-mode and user-mode driver to be of the same version. However, from now on, <strong>with forward compatibility, two driver versions can differ.</strong></p>
+<p><img src="/img/cuda/libcuda-user-kernel-diff-version.png"></p>
+<h3 id="Error-804-forward-compatibility-was-attempted-on-non-supported-HW"><a href="#Error-804-forward-compatibility-was-attempted-on-non-supported-HW" class="headerlink" title="Error 804: forward compatibility was attempted on non supported HW"></a>Error 804: forward compatibility was attempted on non supported HW</h3><p>This happens if the system recognizes our driver versions are different.</p>
+<p>In the following example, we have kernel-mode driver version <code>470.182.03</code>.<br><img src="/img/cuda/libcuda-kernel-version.png"></p>
+<p>And the user-mode driver version is <code>510.108.03</code>.<br><img src="/img/cuda/libcuda-user-version.png"></p>
+<h4 id="Why-will-this-happen"><a href="#Why-will-this-happen" class="headerlink" title="Why will this happen ?"></a>Why will this happen ?</h4><p>The container image has its own <code>libcuda.so</code>, and the host machine has its own <code>libcuda.so</code>. </p>
+<p>When starting a container, nvidia docker will select the best <code>libcuda.so</code> to allow us using the latest cuda runtime toolkit. However, this will requires forward compatibilitym, which is not supported on our GPU, so the error occurs !!</p>
+<h4 id="How-to-solve-it"><a href="#How-to-solve-it" class="headerlink" title="How to solve it ?"></a>How to solve it ?</h4><p>In the previous example, we have kernel-mode driver version <code>470.182.03</code> and user-mode driver version <code>510.108.03</code>.</p>
+<p>We only need to change the user-mode driver version to the same version as the kernel-mode driver. (i.e. both <code>470.182.03</code>)<br><img src="/img/cuda/error804-sol-step1.png"></p>
+<p>Change directory into where <code>libcuda.so</code> is stored.<br><img src="/img/cuda/error804-sol-step2.png"></p>
+<p>Rebuild the softlink<br><img src="/img/cuda/error804-sol-step3.png"></p>
+<p>And voila<br><img src="/img/cuda/error804-sol-step4.png"></p>
+<p>Check <code>nvidia-smi</code><br><img src="/img/cuda/error804-sol-step5.png"></p>
+<p>Notice that <code>CUDA Version</code> is changed from <code>11.6</code> to <code>11.4</code>. But we are still able to run program compiled with cuda runtime <code>11.6</code>. (thanks to the minor version compatibility)<br><img src="/img/cuda/error804-sol-step6.png"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this article, we introduce the hierarchy of cuda layers, their compatibility requirements, and three mechanisms for compatibility.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deploy/cuda-compatibility/index.html#minor-version-compatibility">CUDA Compatibility</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/361545761">PyTorch的CUDA错误：Error 804: forward compatibility was attempted on non supported HW</a></li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://kch042.github.io">8st</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章連結: </span><span class="post-copyright-info"><a href="https://kch042.github.io/posts/cuda-compatibility/">https://kch042.github.io/posts/cuda-compatibility/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版權聲明: </span><span class="post-copyright-info">本部落格所有文章除特別聲明外，均採用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 授權協議。轉載請註明來源 <a href="https://kch042.github.io" target="_blank">8st and the black cats</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Nvidia/">Nvidia</a><a class="post-meta__tags" href="/tags/CUDA/">CUDA</a></div><div class="post-share"><div class="social-share" data-image="/img/work.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/posts/career-2023-intern/" title="2023 SWE Intern 面試紀錄"><img class="cover" src="/img/stretch.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">2023 SWE Intern 面試紀錄</div></div><div class="info-2"><div class="info-item-1">網路上的心得讓我在找實習時受益良多，決定寫這篇分享給大家，也記錄下這段時間找實習的過程。 TL;DR 直接無聲 Dcard Cadence Dell CMoney   無面試，直接感謝信 Google Synopsys Yahoo   面試後無聲 Moxa 404   offer HPE Trend Micro Microsoft Synology    總覽 背景 面試前 面試分享 群暉 Moxa 404 微軟 趨勢 HPE   後記  背景非本科混血台大資工碩，英文能力沒問題，自修國外線上課寫lab，沒什麼side project，喜歡寫算法題，leetcode...</div></div></div></a><a class="pagination-related" href="/posts/cpp-polymorphism/" title="C++ Polymorphism"><img class="cover" src="/img/cpp/cpp.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">C++ Polymorphism</div></div><div class="info-2"><div class="info-item-1">Overview Compile time polymorphism Function overloading Operator overloading   Runtime polymorphism Virtual function (dynamic dispatching)    Compile time polymorphismFunction overloadingFunctions of different signature and return type can share the same function name 123456789101112void fn(int a) &#123;    cout &lt;&lt; a &lt;&lt; &quot;\n&quot;;&#125;void fn(float b) &#123;    cout &lt;&lt; b &lt;&lt; &quot;\n&quot;;&#125;int main() &#123;    fn(10);    fn(1.0);&#125;  However, we cannot...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/career-2024-new-grad-fte/" title="2024 SWE New Grad 求職紀錄"><img class="cover" src="/img/stretch.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-06</div><div class="info-item-2">2024 SWE New Grad 求職紀錄</div></div><div class="info-2"><div class="info-item-1">這篇紀錄了我初期找工作的一些經過，後續還有與其他公司(e.g. ByteDance)面試，但因為後來太忙就沒時間記錄下來。 TL;DR Offer: NV, Google SWE Intern Reject: Synology No outcome: TSMC No interview: Synopsys, Google  Nvidia TensorRT (RDSS Intern)Timing D: application submitted D+3: HR email me about receiving me resume D+5: 1st round interview invitation D+9: 1st round interview D+11: 2nd round interview invitation D+15: 2nd round interview  一面感覺面下來人最親切，學到很多 1 person, 1 hour  Introduction to TensorRT Questions C++ virtual function   Computer...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/cpp.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">8st</div><div class="author-info-description">Hi, This is Buster. I love black cats!</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">標籤</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分類</div><div class="length-num">4</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hierarchy"><span class="toc-number">1.</span> <span class="toc-text">Hierarchy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-versions"><span class="toc-number">2.</span> <span class="toc-text">Check versions</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Runtime"><span class="toc-number">2.1.</span> <span class="toc-text">Runtime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Driver"><span class="toc-number">2.2.</span> <span class="toc-text">Driver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-simplest-version-compatibility"><span class="toc-number">2.3.</span> <span class="toc-text">The simplest version compatibility</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backward-Compatibility"><span class="toc-number">3.</span> <span class="toc-text">Backward Compatibility</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Minor-Version-Compatibility"><span class="toc-number">4.</span> <span class="toc-text">Minor Version Compatibility</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Forward-Compatibility"><span class="toc-number">5.</span> <span class="toc-text">Forward Compatibility</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-804-forward-compatibility-was-attempted-on-non-supported-HW"><span class="toc-number">5.1.</span> <span class="toc-text">Error 804: forward compatibility was attempted on non supported HW</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Why-will-this-happen"><span class="toc-number">5.1.1.</span> <span class="toc-text">Why will this happen ?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#How-to-solve-it"><span class="toc-number">5.1.2.</span> <span class="toc-text">How to solve it ?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">6.</span> <span class="toc-text">Conclusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">7.</span> <span class="toc-text">References</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-inline/" title="C++ Inline"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ Inline"/></a><div class="content"><a class="title" href="/posts/cpp-inline/" title="C++ Inline">C++ Inline</a><time datetime="2024-10-27T16:00:00.000Z" title="發表於 2024-10-28 00:00:00">2024-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-lvalue-rvalue-move-swap-forward/" title="C++ lvalue, rvalue, move, swap, forward"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ lvalue, rvalue, move, swap, forward"/></a><div class="content"><a class="title" href="/posts/cpp-lvalue-rvalue-move-swap-forward/" title="C++ lvalue, rvalue, move, swap, forward">C++ lvalue, rvalue, move, swap, forward</a><time datetime="2024-05-17T16:00:00.000Z" title="發表於 2024-05-18 00:00:00">2024-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-template/" title="C++ Template"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ Template"/></a><div class="content"><a class="title" href="/posts/cpp-template/" title="C++ Template">C++ Template</a><time datetime="2024-02-24T16:00:00.000Z" title="發表於 2024-02-25 00:00:00">2024-02-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cpp-uniform-initialization/" title="C++ Uniform Initialization"><img src="/img/cpp/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++ Uniform Initialization"/></a><div class="content"><a class="title" href="/posts/cpp-uniform-initialization/" title="C++ Uniform Initialization">C++ Uniform Initialization</a><time datetime="2024-02-19T16:00:00.000Z" title="發表於 2024-02-20 00:00:00">2024-02-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/career-2024-new-grad-fte/" title="2024 SWE New Grad 求職紀錄"><img src="/img/stretch.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024 SWE New Grad 求職紀錄"/></a><div class="content"><a class="title" href="/posts/career-2024-new-grad-fte/" title="2024 SWE New Grad 求職紀錄">2024 SWE New Grad 求職紀錄</a><time datetime="2023-12-05T16:00:00.000Z" title="發表於 2023-12-06 00:00:00">2023-12-06</time></div></div></div></div></div></div></main><footer id="footer" style="background: black;"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 8st</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日夜模式切換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到頂端"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div></div></body></html>
