@@ -11,11 +11,13 @@ updated: 2024-10-28 00:00:00
 
 A template is the same as **Macro** in C, but a far less evil one. Compiler could do more checking to ensure the safety of the program.
 
+Besides, template is also an implementation of {% post_link cpp-polymorphism 'static polymorphism' %} since it will generate different kinds function of the same name during compile time.
+
 ## What is template
 
 The compiler **substitutes** the template parameters into the functions and classes to make more them more dynamic.
 
-Since template is essentially doing the substitution, then we the template parameter should be known in compile-time.
+Since template is essentially doing the substitution, then **the template parameter should be known at compile-time**.
 
 The template parameters can be one of these:
 - type
@@ -30,6 +32,19 @@ The template parameters can be one of these:
 3. More generic
 
 ## Exercise
+
+### Putting template function definitions in header or source files? Why?
+
+The answer is header files. 
+
+Recall from the {% post_link compiler-basics 'compilation process' %}, we first have multiple translation units (TUs) and then we will link them together.
+
+Now let's suppose we put the definition in source file and consider a scenario where
+* TU A: include the header instantiate the template functions
+* TU B: includes the source file of template function definition
+
+When we are compiling TU B, it will have no idea what kind of template function TU A needs. Therefore, TU A will have no usable function definition when linking.
+
 
 ### Pass function to template
 
